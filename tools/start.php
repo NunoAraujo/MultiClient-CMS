@@ -7,14 +7,14 @@ require_once($_SERVER['DOCUMENT_ROOT']."/tools/mysql.php");
 // require_once($_SERVER['DOCUMENT_ROOT']."/classes/scheme.php");
 
 $dbHost = "localhost";
-$dbName =  "asquaredoffice";
+$dbName =  "multiclientcms";
 $dbUser = "root";
 $dbPass = "";
 $ftpRoot = "";
 $ftpHost = "";
 $ftpUser = "";
 $ftpPass = "";
-$host = "http://asquaredoffice.dev";
+$host = "http://multiclientcms.dev";
 // if (isset($_SESSION['authorized']) && $_SESSION['authorized'] && isset($_SESSION['currClient'])) {
 $connected = mySqlConnect($dbHost, $dbName, $dbUser, $dbPass);
 if(!$connected){
@@ -45,7 +45,7 @@ define('FTPPASS',$ftpPass);
 define('SODBHOST',"localhost");
 define('SODBUSER',"root");
 define('SODBPASS',"");
-define('SODBNAME',"asquaredoffice");
+define('SODBNAME',"multiclientcms");
 // make a connection to mysql here
 $connected = mySqlConnect(DBHOST, DBNAME, DBUSER, DBPASS);
 if(!$connected){
@@ -53,13 +53,10 @@ if(!$connected){
 }
 
 // define site path
-define('DIR','asquaredoffice.dev');
+define('DIR','multiclientcms.dev');
 
 define('HOST', $host);
-define('SOHOST','http://asquaredoffice.dev');
-
-// define site title for top of the browser
-define('SITETITLE','A Squared Office');
+define('SOHOST','http://multiclientcms.dev');
 
 require_once($_SERVER['DOCUMENT_ROOT']."/tools/misc.php");
 ?>
