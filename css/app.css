@@ -1,0 +1,38 @@
+/* app css stylesheet */
+.mdl-layout__drawer {
+  border-right: none;
+}
+
+#login-form-cell  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+#login-form-card {
+  align-items: center;
+  justify-content: center;
+}
+#login-form-card form {
+  width: 100%
+}
+#login-form-card .mdl-card__actions {
+  text-align: right;
+}
+
+#admin-msg {
+  display: flex;
+  padding: 8px;
+}
+#admin-sites {
+  
+}
+#admin-sites #sites-card {
+  width: 100%;
+}
+#admin-sites table {
+  width: 100%;
+}
+#sites-card .mdl-card__supporting-text {
+  width: calc(100% - 32px);
+}
