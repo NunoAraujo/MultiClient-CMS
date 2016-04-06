@@ -14,7 +14,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="A Squared Office">
+    <meta name="apple-mobile-web-app-title" content="Multi Client CMS">
     <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -47,12 +47,13 @@
           </ul>
         </div>
       </header>
-      <div class="mdl-layout__drawer mdl-color--primary">
+      <div class="mdl-layout__drawer mdl-color--primary" ng-controller="navController as navCtrl">
         <header class="">
           
         </header>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link mdl-color-text--white" href="">Home</a>
+          <span></span>
+          <a class="mdl-navigation__link mdl-color-text--white" href="" ng-repeat="area in areas" ng-show="area.hide==0 && user.loggedIn">{{area.name}}</a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">

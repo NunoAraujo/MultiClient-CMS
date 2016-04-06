@@ -1,6 +1,8 @@
-/* app css stylesheet */
 .mdl-layout__drawer {
   border-right: none;
+}
+.mdl-layout__drawer > header {
+  min-height: 64px;
 }
 
 #login-form-cell  {

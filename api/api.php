@@ -86,6 +86,22 @@ class MyAPI extends API
             return Array('error' => "Only accepts GET requests");
         }
     }
+    protected function getNavAreas() {
+        if ($this->method == 'GET') {
+            if (!array_key_exists('clientId', $this->request)) {
+                return Array('error' => "No client id provided.");
+            } else {
+                $navAreas = MySqlSelect("schemes", "*", "client=".$this->request['clientId']);
+                if ($navAreas) {
+                    return Array('result' => $navAreas);
+                } else {
+                    return Array('error' => "No clients found");
+                }
+            }
+        } else {
+            return Array('error' => "Only accepts GET requests");
+        }
+    }
 }
 
 // Requests from the same server don't have a HTTP_ORIGIN header
