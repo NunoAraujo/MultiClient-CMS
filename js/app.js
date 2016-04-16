@@ -1,13 +1,16 @@
 (function() {
-
-	angular.module('MultiClientCMS', ['ngResource', 'ngRoute']).
-	config(function($routeProvider) {
-		$routeProvider.
-			when('/', {
+	angular.module('MultiClientCMS', ['ngResource', 'ngRoute', 'ngCookies']).
+	config(function($routeProvider) {	
+		$routeProvider
+			.when('/', {
 				controller: 'adminController',
 				controllerAs: 'adminCtrl',
 				templateUrl: 'templates/pages/admin/index.html'
-			});
+			}).when('/scheme', {
+				controller: 'schemeController',
+				controllerAs: 'schemeCtrl',
+				templateUrl: 'templates/pages/scheme/index.html'
+			}).otherwise({redirectTo: '/'});
 	});
 
 	angular.module('MultiClientCMS')

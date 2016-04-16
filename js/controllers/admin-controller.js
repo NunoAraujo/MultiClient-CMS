@@ -1,16 +1,12 @@
 (function() {
 	angular.module('MultiClientCMS')
-		.controller('adminController', function($scope, $http) {
+		.controller('adminController', function($scope, $http, $cookies) {
 			$scope.email = "";
 			$scope.password = "";
+			$scope.remember = false;
 			$scope.errorMsg = "";
-	    	$scope.$root.user = {
-	    		id: "",
-	    		name: "",
-	    		email: "",
-	    		isAdmin: false,
-	    		loggedIn: false,
-	    	};
+
+	    	
 	    	$scope.sitesList = {};
 	    	$scope.sitesListHeader = [];
 
@@ -25,6 +21,11 @@
 	    			if('result' in data) {
 		  				$scope.$root.user = data.result;
 		  				$scope.$root.user.loggedIn = true;
+		  				if ($scope.remember) {
+		  					$cookies.putObject('user', $scope.$root.user);
+		  				} else {
+		  					$cookies.remove('user');
+		  				}
 		  				$scope.getClientsList();
 	    			} else {
 	    				$scope.errorMsg = data.error;
@@ -47,5 +48,18 @@
 	    			}
 	    		});
 		  	};
+
+			if (typeof $cookies.getObject('user') === 'undefined') {
+				$scope.$root.user = {
+		    		id: "",
+		    		name: "",
+		    		email: "",
+		    		isAdmin: false,
+		    		loggedIn: false,
+		    	};
+			} else {
+				$scope.$root.user = $cookies.getObject('user');
+				$scope.getClientsList();
+			}
 		});
 })();

@@ -13,6 +13,10 @@
           <input class="mdl-textfield__input" type="password" id="userpass" ng-model="password">
           <label class="mdl-textfield__label" for="userpass">Password</label>
         </div>
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember">
+          <input type="checkbox" id="remember" class="mdl-checkbox__input" ng-model="remember">
+          <span class="mdl-checkbox__label">Remember me</span>
+        </label>
         <span ng-show="errorMsg!=''">{{errorMsg}}</span>
       </div>
       <div class="mdl-card__actions mdl-card--border">
