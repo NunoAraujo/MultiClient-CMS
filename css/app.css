@@ -2,14 +2,12 @@
   border-right: none;
 }
 .mdl-layout__drawer > header {
-  position: relative;
   min-height: 64px;
 }
 .mdl-layout__drawer > header > span:first-child {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
   padding: 16px 40px;
+  max-width: 240px;
 }
 
 #login-form-cell  {
