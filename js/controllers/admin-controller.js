@@ -5,7 +5,6 @@
 			$scope.password = "";
 			$scope.remember = false;
 			$scope.errorMsg = "";
-
 	    	
 	    	$scope.sitesList = {};
 	    	$scope.sitesListHeader = [];
@@ -61,5 +60,6 @@
 				$scope.$root.user = $cookies.getObject('user');
 				$scope.getClientsList();
 			}
+
 		});
 })();

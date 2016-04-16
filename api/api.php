@@ -95,7 +95,33 @@ class MyAPI extends API
                 if ($navAreas) {
                     return Array('result' => $navAreas);
                 } else {
-                    return Array('error' => "No clients found");
+                    return Array('error' => "No nav items found");
+                }
+            }
+        } else {
+            return Array('error' => "Only accepts GET requests");
+        }
+    }
+
+    protected function getSchemeList() {
+        if ($this->method == 'GET') {
+            require_once 'scheme.php';
+            if (!array_key_exists('clientID', $this->request)) {
+                return Array('error' => "No client id provided.");
+            } else if (!array_key_exists('schemeID', $this->request)) {
+                return Array('error' => "No scheme id provided.");
+            } else {
+                mySqlSetClient($this->request['clientID']);
+                $scheme = new Scheme($this->request['schemeID']);
+                if ($scheme->isLoaded) {
+                    $headers = $scheme->getListItemsHeaders();
+                    $listItems = $scheme->getListItems();
+                    return Array('result' => array(
+                            'headers'=>$headers,
+                            'items'=>$listItems,
+                        ));
+                } else {
+                    return Array('error' => "An error occurred while loading scheme data.");
                 }
             }
         } else {

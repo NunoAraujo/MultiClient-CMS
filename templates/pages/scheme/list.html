@@ -1,0 +1,17 @@
+<div class="mdl-cell mdl-cell--12-col mdl-grid--no-spacing" id="admin-sites" ng-show="user.loggedIn">
+  <!-- {{sitesList}} -->
+  <div id="admin-sites-table-wrapper">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric" ng-repeat="header in schemeListHeader">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="schemeItem in schemeList">
+          <td class="mdl-data-table__cell--non-numeric" ng-repeat="(field, value) in schemeItem" ng-show="field!='id'">{{value}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -17,8 +17,43 @@ function mySqlConnectSO() {
 	return mySqlConnect(SODBHOST, SODBNAME, SODBUSER, SODBPASS);
 }
 
+function mysqlSetClient($clientId) {
+	$dbHost = "localhost";
+	$dbName =  "asquaredoffice";
+	$dbUser = "root";
+	$dbPass = "";
+	$ftpRoot = "";
+	$ftpHost = "";
+	$ftpUser = "";
+	$ftpPass = "";
+	$host = "http://asquaredoffice.dev";
+
+	$result = MySqlSelectSingle("clients", "*", "id=$clientId");
+	if ($result) {
+		$dbHost = $result['dbHost'];
+		$dbUser = $result['dbUser'];
+		$dbPass =  $result['dbPass'];
+		$dbName = $result['dbName'];
+		$ftpRoot = $result['ftpRoot'];
+		$ftpHost = $result['ftpHost'];
+		$ftpUser = $result['ftpUser'];
+		$ftpPass =  $result['ftpPass'];
+		$host = $result['webHost'];
+	}
+
+	$GLOBALS['DBHOST'] = $dbHost;
+	$GLOBALS['DBUSER'] = $dbUser;
+	$GLOBALS['DBPASS'] = $dbPass;
+	$GLOBALS['DBNAME'] = $dbName;
+	$GLOBALS['FTPROOT'] = $ftpRoot;
+	$GLOBALS['FTPHOST'] = $ftpHost;
+	$GLOBALS['FTPUSER'] = $ftpUser;
+	$GLOBALS['FTPPASS'] = $ftpPass;
+	mySqlConnectClient();
+}
+
 function mySqlConnectClient() {
-	return mySqlConnect(DBHOST, DBNAME, DBUSER, DBPASS);
+	return mySqlConnect($GLOBALS['DBHOST'], $GLOBALS['DBNAME'], $GLOBALS['DBUSER'], $GLOBALS['DBPASS']);
 }
 
 function mySqlQuery($sql) {

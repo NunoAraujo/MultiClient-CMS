@@ -43,17 +43,16 @@
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">Administração</li>
+            <li class="mdl-menu__item" ng-click="goToAdmin()">Administração</li>
           </ul>
         </div>
       </header>
       <div class="mdl-layout__drawer mdl-color--primary" ng-controller="navController as navCtrl">
         <header class="">
-          
+          <span>{{user.email}}</span>
         </header>
         <nav class="mdl-navigation">
-          <span></span>
-          <a class="mdl-navigation__link mdl-color-text--white" href="" ng-repeat="area in areas" ng-show="area.hide==0 && user.loggedIn">{{area.name}}</a>
+          <a class="mdl-navigation__link mdl-color-text--white" href="" ng-repeat="area in areas" ng-show="area.hide==0 && user.loggedIn" ng-click="goTo(area.id)">{{area.name}}</a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
@@ -69,6 +68,9 @@
     <script src="/js/vendor/angular-cookies.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/controllers/admin-controller.js"></script>
+    <script src="/js/controllers/header-controller.js"></script>
+    <script src="/js/controllers/nav-controller.js"></script>
+    <script src="/js/controllers/scheme-controller.js"></script>
     <!-- <script src="js/login-form.js"></script>
     <script src="js/app-admin.js"></script> -->
   </body>

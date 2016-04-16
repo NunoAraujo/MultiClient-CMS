@@ -6,33 +6,15 @@
 				controller: 'adminController',
 				controllerAs: 'adminCtrl',
 				templateUrl: 'templates/pages/admin/index.html'
-			}).when('/scheme', {
+			}).when('/scheme/:id', {
 				controller: 'schemeController',
 				controllerAs: 'schemeCtrl',
-				templateUrl: 'templates/pages/scheme/index.html'
+				templateUrl: 'templates/pages/scheme/list.html'
 			}).otherwise({redirectTo: '/'});
 	});
 
 	angular.module('MultiClientCMS')
 		.controller('headerController', function($scope) {
 			$scope.siteName = "MultiClient CMS";
-		});
-
-	angular.module('MultiClientCMS')
-		.controller('navController', function($scope, $http) {
-			$scope.$root.client = 1;
-			$scope.areas = {};
-			$http.get("/api/getNavAreas", {params:{
-	  			"apiKey": "testKey",
-	  			"token": "testToken",
-	  			"clientId": $scope.$root.client,
-	  		}})
-			.success(function (data) {
-				if('result' in data) {
-	  				$scope.areas = data.result;
-				} else {
-					console.log(data.error);
-				}
-			});
 		});
 })();
