@@ -198,7 +198,7 @@ function mySqlGetForeignKeys($table, $field = false) {
 	return $result;
 }
 function mySqlIsFieldNullable($table, $field) {
-	$sql = "SELECT * FROM information_schema.columns WHERE table_schema = '".DBNAME."' AND table_name = '$table' AND column_name = '$field' AND is_nullable = 'YES'";
+	$sql = "SELECT * FROM information_schema.columns WHERE table_schema = '".$GLOBALS['DBNAME']."' AND table_name = '$table' AND column_name = '$field' AND is_nullable = 'YES'";
 	$result = mySqlRaw($sql);
 	return empty($result) ? false : true;
 }

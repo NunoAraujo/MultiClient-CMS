@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="schemeItem in schemeList">
+        <tr ng-repeat="schemeItem in schemeList" ng-click="goToItem(schemeItem.id)">
           <td class="mdl-data-table__cell--non-numeric" ng-repeat="(field, value) in schemeItem" ng-show="field!='id'">{{value}}</td>
         </tr>
       </tbody>

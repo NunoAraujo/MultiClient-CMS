@@ -2,14 +2,14 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/tools/mysql.php");
 
 $dbHost = "localhost";
-$dbName =  "asquaredoffice";
+$dbName =  "multiclientcms";
 $dbUser = "root";
 $dbPass = "";
 $ftpRoot = "";
 $ftpHost = "";
 $ftpUser = "";
 $ftpPass = "";
-$host = "http://asquaredoffice.dev";
+$host = "http://multiclientcms.dev";
 
 $connected = mySqlConnect($dbHost, $dbName, $dbUser, $dbPass);
 if(!$connected){
@@ -42,7 +42,7 @@ $GLOBALS['FTPPASS'] = $ftpPass;
 define('SODBHOST',"localhost");
 define('SODBUSER',"root");
 define('SODBPASS',"");
-define('SODBNAME',"asquaredoffice");
+define('SODBNAME',"multiclientcms");
 // make a connection to mysql here
 $connected = mySqlConnect($GLOBALS['DBHOST'], $GLOBALS['DBNAME'], $GLOBALS['DBUSER'], $GLOBALS['DBPASS']);
 if(!$connected){
@@ -50,10 +50,10 @@ if(!$connected){
 }
 
 // define site path
-define('DIR','asquaredoffice.dev');
+define('DIR','multiclientcms.dev');
 
 define('HOST', $host);
-define('SOHOST','http://asquaredoffice.dev');
+define('SOHOST','http://multiclientcms.dev');
 
 require_once($_SERVER['DOCUMENT_ROOT']."/tools/misc.php");
 ?>

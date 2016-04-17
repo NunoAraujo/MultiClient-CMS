@@ -6,15 +6,12 @@
 				controller: 'adminController',
 				controllerAs: 'adminCtrl',
 				templateUrl: 'templates/pages/admin/index.html'
-			}).when('/scheme/:id', {
+			}).when('/scheme/list/:id', {
 				controller: 'schemeController',
 				controllerAs: 'schemeCtrl',
 				templateUrl: 'templates/pages/scheme/list.html'
 			}).otherwise({redirectTo: '/'});
 	});
 
-	angular.module('MultiClientCMS')
-		.controller('headerController', function($scope) {
-			$scope.siteName = "MultiClient CMS";
-		});
+	
 })();

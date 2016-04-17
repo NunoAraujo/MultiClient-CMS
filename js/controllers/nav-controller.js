@@ -20,7 +20,7 @@
 			});
 
 			$scope.goTo = function(schemeId) {
-				$location.path('/scheme/' + schemeId);
+				$location.path('/scheme/list/' + schemeId);
 			};
 
 			if (typeof $cookies.getObject('user') === 'undefined') {

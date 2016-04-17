@@ -113,12 +113,20 @@ class MyAPI extends API
             } else {
                 mySqlSetClient($this->request['clientID']);
                 $scheme = new Scheme($this->request['schemeID']);
+                $groupByValue = false;
+                if(isset($this->request['groupByValue'])) $groupByValue = $this->request['groupByValue'];
                 if ($scheme->isLoaded) {
-                    $headers = $scheme->getListItemsHeaders();
-                    $listItems = $scheme->getListItems();
+                    if ($scheme->groupBy == "" || ($scheme->groupBy != "" && $groupByValue)) {
+                        $headers = $scheme->getListItemsHeaders();
+                        $listItems = $scheme->getListItems($groupByValue);
+                    } else {
+                        $headers = array(0=>$scheme->groupBy);
+                        $listItems = $scheme->getListGroupItems();
+                    }
                     return Array('result' => array(
                             'headers'=>$headers,
                             'items'=>$listItems,
+                            'groupBy'=>$scheme->groupBy,
                         ));
                 } else {
                     return Array('error' => "An error occurred while loading scheme data.");
